@@ -1,0 +1,33 @@
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<style>
+    #searchbox{
+        width:500px;
+        
+        margin:auto;
+        margin-top:20px;
+        margin-bottom:20px;
+        padding:30px;
+        position: relative;
+        border:0px solid black;
+        box-shadow: 1px 1px 2px 2px gray;
+    }
+</style>
+
+{% extends 'base.html' %}
+{% block content %}
+
+<div id = "searchbox">
+    <form action="{% url 'result' %}">
+        제목: {{ form.title }}
+        장르:  {{ form.genre }}
+        연령대: {{ form.ages }}
+        <br/>
+        <div class='text-center'>
+            <input type='submit' class='btn btn-primary btn-lg' value='검색'>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

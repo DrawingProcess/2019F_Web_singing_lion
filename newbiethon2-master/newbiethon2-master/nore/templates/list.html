@@ -1,0 +1,58 @@
+<style>
+
+    .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width:500px;
+        height:300px;
+    }
+    .singing {
+        background-color: white;
+        opacity: 0.8;
+        text-align: center;
+        font-family: 'Do Hyeon', sans-serif;
+
+    }
+    .table {
+        background-color: white;
+        text-align: center;
+        font-family: 'Do Hyeon', sans-serif;
+    }
+
+</style>
+<link href="https://fonts.googleapis.com/css?family=Do+Hyeon" rel="stylesheet">
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="singing">
+    
+    <div class="container" style="text-align: right">
+        <h4 class='mt-5'><a href="{% url 'roomcreate' %}">ADDROOM</a></h4>
+    </div>
+    <!-- 방 목록 -->
+    <div class="container" margin-top="50px">
+        <table class="table">
+        <thead>
+            <tr>
+            <th scope="col"><h3>매칭을 기다리는 사람들</h3></th>
+            </tr>
+        </thead>
+        <tbody>
+                {% for room in rooms %}
+                    <tr>
+                    <td><h4><a href="{% url 'show' room.id %}">{{ room.title }}</a></h4></td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td>검색 결과가 없습니다</td>
+                    </tr>
+                {% endfor %}
+            
+        
+        </tbody>
+        </table>
+</div>
+
+{% endblock %}
+

@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="kr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Singing Lion</title>
+    <link href="https://fonts.googleapis.com/css?family=Do+Hyeon" rel="stylesheet">
+    <style>
+    .containBox{
+        width:450px;
+        border: 1px solid black;
+        margin-top:20px;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        padding:20px;
+        border-radius: 10px;
+        color:white;
+        background:#343a40;
+        font-family: 'Do Hyeon', sans-serif;
+    }
+    h3{
+        padding:1px;
+        background-color:white;
+        color:black;
+    }
+    .backBtn{
+        border:1px solid black;
+        padding:10px;
+        background-color:white;
+        border-radius: 10px;
+        color:black;
+        margin-top: 10px;
+        font-family: 'Do Hyeon', sans-serif;
+    }
+    .textContain{
+        width:400px;
+    }
+
+    </style><!--스타일-->
+</head>
+
+<body>
+    <div class="container containBox">
+        <div class="textContain">
+            <h2>제목: {{ room.title }}</h2>
+            <h3>내용: {{ room.content|linebreaks }}</h3>
+            <h3>카테고리: {{ room.genre }}</h3>
+            <h3>노래방: {{ room.norebang }}</h3>
+            <h3>작성자: {{ room.user }}</h3>
+            <h3>연령대: {{ room.ages }}</h3>
+            <h3>작성일: {{ room.created_at }}</h3>
+            <h3>수정일: {{ room.updated_at }}</h3>
+        </div>
+        <a class="backBtn" href="{% url 'list' %}">뒤로가기</a>
+    </div>
+</body>
+
+</html>
+
+{% endblock %}

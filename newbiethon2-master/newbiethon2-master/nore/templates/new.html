@@ -1,0 +1,39 @@
+<html>
+<head>
+    <title>방 만들기</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+
+<style>
+#container{
+    width:500px;
+    height:900px;
+    margin:auto;
+    margin-top:20px;
+    margin-bottom:20px;
+    padding:30px;
+    position: relative;
+    border:0px solid black;
+    box-shadow: 1px 1px 2px 2px gray;
+}
+
+</style>
+
+<div id = "container">
+<form method='POST'>
+    {% csrf_token %}
+    제목: {{form.title}}<br/>
+    내용: {{form.content}}<br/>
+    노래방: {{form.norebang}}<br/>
+    장르: {{form.genre}}<br/>
+    호수: {{form.number}}<br/>
+    연령대: {{form.ages}}<br/>
+    <div class='text-center'>
+        <input type='submit' class='btn btn-primary btn-lg' value='등록'>
+    </div>
+</form>
+
+</div> <!--container-->
+</body>
+</html>

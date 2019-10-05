@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>detail_page</title>
+    {% load staticfiles %}
+    <link rel= "stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+    
+</head>
+<body>
+    <div id ="boot">
+        <div class="shadow-none p-3 mb-5 bg-light rounded mx-auto text-center" style="width: 30%; margin-top: 3rem;">
+            <label for="title"> title : </label><input class="form-control" type="text" name="title"></p>
+        </div>
+        <div class="shadow-none p-3 mb-5 bg-light rounded mx-auto text-center" style="width: 30%; margin-top: 3rem;">
+            <label for="introduce"> introduce : </label><input class="form-control" type="text" name="introduce"></p>
+        </div>
+        <div class="shadow-none p-3 mb-5 bg-light rounded mx-auto text-center" style="width: 30%; margin-top: 3rem;">
+            <label for="caterogie"> caterogie : </label><input class="form-control" type="text" name="caterogie"></p>
+        </div>
+        <div class="shadow-none p-3 mb-5 bg-light rounded mx-auto text-center" style="width: 30%; margin-top: 3rem;">
+            <h2>방/번호</h2>
+        </div>
+        <div class="shadow-none p-3 mb-5 bg-light rounded mx-auto text-center" style="width: 30%; margin-top: 3rem; display: inline-block;">
+            <h2>writer: </h2>
+        </div>
+        <div class="shadow-none p-3 mb-5 bg-light rounded mx-auto text-center" style="width: 30%; margin-top: 3rem; display: inline-block;">
+            <h2>age: </h2>
+        </div><br>
+        <div class="shadow-none p-3 mb-5 bg-light rounded mx-auto text-center" style="width: 30%; margin-top: 3rem; display: inline-block;">
+            <h2>date_of_preparation: </h2>
+        </div>
+        <div class="shadow-none p-3 mb-5 bg-light rounded mx-auto text-center" style="width: 30%; margin-top: 3rem; display: inline-block;">
+            <h2>last_update: </h2>
+        </div><br>
+    </div>
+</body>
+</html>

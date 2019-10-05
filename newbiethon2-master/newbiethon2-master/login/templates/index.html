@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Singing Lion</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Play" rel="stylesheet">
+	{% load staticfiles %}
+	<link rel= "stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+	<link href="https://fonts.googleapis.com/css?family=Jua" rel="stylesheet">
+	<style>
+		#txt {
+			width: 50%;
+            color: white;
+			padding: 100px;
+			background-color: rgba(0,0,0,0.8);
+            font-family: 'jua', sans-serif;
+            text-align: left;
+            margin:auto;
+			margin-top:20px;
+		}
+		.introduce {
+			font-size: 30px
+		}
+		.text1 {
+			font-size: 25px;
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<nav class="navbar navbar-dark bg-dark">
+			<a class="navbar-brand" href="">
+				SINGING LION
+			</a>
+		</nav> <!-- 부트스트랩 상단바 -->
+</div>
+	<div id="txt">
+        <div class="introduce">Singing Lion이란?</div></br>
+        <div class="text1">함께 노래방을 즐길 수 있도록 도와주는 서비스입니다.</br>
+						근처에 있는 노래방에서 다른 사람들과 함께 즐겨보세요.</div></br>
+			<div id ="boot">
+				<div class="shadow-none p-3 mb-5 bg-light rounded mx-auto text-center" style="width: 65%; margin-top: 7rem;">
+					<a href="{% url 'signup' %}"><h2>SIGN UP</h2></a>
+				</div>
+								
+				<div class="shadow-none p-3 mb-5 bg-light rounded mx-auto text-center" style="width: 65%; margin-top: 1rem;">
+					<a href="{% url 'login' %}"><h2>SIGN IN</h2></a>
+				</div>
+						
+			</div>
+    </div>
+	</div>
+</body>
+</html>

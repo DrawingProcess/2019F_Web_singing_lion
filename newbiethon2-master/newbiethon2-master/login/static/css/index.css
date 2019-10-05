@@ -1,0 +1,19 @@
+body {
+	background-image: url('bg.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+#boot div {
+	opacity: 0.8;
+	font-family: 'Play', sans-serif;
+}
+
+a {
+	color: black;
+}
+
+a:hover {
+	color:#A566FF;
+	text-decoration: none;
+}

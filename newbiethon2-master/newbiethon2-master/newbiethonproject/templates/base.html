@@ -1,0 +1,113 @@
+<style>
+    .btn#ham {
+        width : 50px;
+        height : 50px;
+        position : absolute;
+        right : 0px;
+        top : 0px;
+        z-index : 1;
+        background-image : url("https://s1.daumcdn.net/cfs.tistory/custom/blog/204/2048858/skin/images/menu.png");
+        background-size : 50%;
+        background-repeat : no-repeat;
+        background-position : center;
+        cursor : pointer;
+       }
+    .close {
+        width : 50px;
+        height : 50px;
+        position : absolute; right : 0px; top : 0px; z-index : 1; background-image : url("https://s1.daumcdn.net/cfs.tistory/custom/blog/204/2048858/skin/images/close.png");
+        background-size : 50%;
+        background-repeat : no-repeat;
+        background-position : center;
+        cursor : pointer;
+          }
+      #menu {
+      width : 300px;
+      height : 95%;
+      position : fixed;
+      top : 0px;
+      right : -300px;
+      z-index : 10;
+      border :1px solid gray;
+      box-shadow: 3px 3px 3px 3px gray;
+      background-color : white;
+      text-align : center;
+      transition: All 0.2s ease; -webkit-transition: All 0.2s ease;
+       -moz-transition: All 0.2s ease; -o-transition: All 0.2s ease;
+    }
+      #menu.open {
+        right : 0px;
+        padding-top:40px;
+      }
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        background-color: #f1f1f1;
+    }
+    li a {
+        display: block;
+        color: #000;
+        padding: 8px 16px;
+    }
+    li a:hover{
+        text-decoration: none;
+    }
+    li a:hover:not(.active) {
+        background-color: #555;
+        color: white;
+    }
+</style>
+
+<head>
+{% load staticfiles %}
+    <title>Singing Lion</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<div id="container">
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="{% url 'main' %}">
+            SINGING LION
+        </a>
+    </nav> <!-- 부트스트랩 상단바 -->
+</div>
+<div id="menu">
+    <div class="close">
+    </div>
+    {% if user.is_authenticated %}
+        <p>환영합니다 {{ user.username }}님!</p>
+    {% endif %}
+    <ul>
+        {% if user.is_authenticated %}
+            <li><a href="{% url 'logout' %} " onclick="return confirm('정말 로그아웃 하시겠습니까?')">로그아웃</a></li>
+        {% else %}
+            <li><a href="{% url 'login' %}">로그인</a></li>
+        {% endif %}
+        <li><a href="{% url 'main' %}">지도</a></li>
+        <li><a href="{% url 'search' %}">필터</a></li>
+    </ul>
+</div>
+<div class="btn" id='ham'>
+</div><!--사이드바-->
+
+
+
+
+{% block content %}
+{% endblock %}
+
+
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.2.0.min.js">
+</script>
+<script>
+    $(".btn#ham").click(function() {
+    $("#menu").addClass("open");
+    });
+    $(".close").click(function() {
+    $("#menu").removeClass("open");
+    }); //main sidebar 클릭
+
+
+</script>

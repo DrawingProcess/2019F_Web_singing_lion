@@ -1,0 +1,69 @@
+<style>
+
+    .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width:500px;
+        height:300px;
+    }
+    .singing {
+        background-color: white;
+        opacity: 0.8;
+        text-align: center;
+        font-family: 'Do Hyeon', sans-serif;
+
+    }
+    .table {
+        background-color: white;
+        text-align: center;
+        font-family: 'Do Hyeon', sans-serif;
+    }
+
+</style>
+<link href="https://fonts.googleapis.com/css?family=Do+Hyeon" rel="stylesheet">
+
+{% extends 'base.html' %}
+{% block content %}
+
+
+
+
+		<table class="table">
+		  <thead>
+		    <tr>
+                <th scope="col" class='border-bottom-0 pb-0 pt-4'>
+                    <h3>필터</h3>
+                </th>
+		    </tr>
+            <tr>
+                <th scope="col" class='border-top-0 pt-0'>
+                    {% comment %} <h4>{{ title }} {{ genre }} {{ ages }}</h4> {% endcomment %}
+                    {% if title %}
+                        <h4>제목 - {{title}}</h4>
+                    {% endif %}
+                    {% if genre %}
+                        <h4>장르 - {{genre}}</h4>
+                    {% endif %}
+                    {% if ages %}
+                        <h4>연령대 - {{ages}}</h4>
+                    {% endif %}
+                </th>
+		    </tr>
+		  </thead>
+		  <tbody>
+                {% for room in rooms %}
+                    <tr>
+                    <td><h4><a href="{% url 'show' room.id %}">{{ room.title }}</a></h4></td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td><h4>검색 결과가 없습니다</h4></td>
+                    </tr>
+                {% endfor %}
+		    
+		   
+		  </tbody>
+		</table>
+
+{% endblock %}

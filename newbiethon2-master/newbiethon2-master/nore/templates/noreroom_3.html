@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="kr">
+
+<head>
+    <meta charset="utf-8">
+    <title> 딩기딩기 노래방</title>
+    <link href="https://fonts.googleapis.com/css?family=Do+Hyeon" rel="stylesheet">
+    <style>
+    .containBox{
+        width:450px;
+        border: 1px solid black;
+        margin-top:20px;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        padding:20px;
+        border-radius: 10px;
+        color:white;
+        background:#343a40;
+        font-family: 'Do Hyeon', sans-serif;
+    }
+    h3{
+        padding:1px;
+        background-color:white;
+        color:black;
+    }
+    .backBtn{
+        border:1px solid black;
+        padding:10px;
+        background-color:white;
+        border-radius: 10px;
+        color:black;
+        margin-top: 10px;
+    }
+    .textContain{
+        width:400px;
+    }
+
+    </style><!--스타일-->
+</head>
+<body>
+<div class="container containBox">
+    <div class="textContain">
+        <h2>딩기딩기 노래방</h2>
+        <h3>방 갯수 : 50개</h3>
+        <h3>영업시간 : 24시간</h3>
+        <h3>연락처 : 010-1234-5678</h3>
+        <h3>주소 : 서울시 강남구 신사동 어딘가</h3>
+    </div>
+    <br>
+<div id = "wrap"><!-- 지도 -->
+ <div id="map" style="width:400px;height:400px;"></div>
+        <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f0f1b9ee56e25efae8276707df2c4ea4"></script>
+        <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=APIKEY&libraries=LIBRARY"></script>
+    
+    <script>   
+    var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+    mapOption = { 
+        center: new daum.maps.LatLng(33.450879, 126.569940), // 지도의 중심좌표
+        level: 2 // 지도의 확대 레벨
+    };
+
+var map = new daum.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+// 마커가 표시될 위치입니다 
+var markerPosition  = new daum.maps.LatLng(33.450879, 126.569940); 
+
+// 마커를 생성합니다
+var marker = new daum.maps.Marker({
+    position: markerPosition
+});
+
+// 마커가 지도 위에 표시되도록 설정합니다
+marker.setMap(map);
+
+
+    
+     </script>
+     </div>
+    <a class="backBtn" href="{% url 'main' %}">뒤로가기</a>
+
+
+</div>
+</body>
+
+</html>
+
+{% endblock %}
